@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="AniDiffusion">
+  <meta property="og:title" content="AniDiffusion"/>
+  <meta property="og:description" content="Animate Image with Text, Motion Mask, and Motion strength"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="video diffusion">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Submission</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">How to Train Your Dragon: Automatic Diffusion-Based Rigging for Characters with Diverse Topologies
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://www.cs.cornell.edu/~zeqigu/" target="_blank">Zeqi Gu</a>,</span>
+                <span class="author-block">
+                  <a href="https://difanliu.github.io/" target="_blank">Difan Liu</a>,</span>
+                  <span class="author-block">
+                    <a href="https://langlo.is/" target="_blank">Timothy Langlois</a>,</span>
+                    <span class="author-block">
+                      <a href="https://research.adobe.com/person/matt-fisher/" target="_blank">Matthew Fisher</a>,</span>
+                      <span class="author-block">
+                        <a href="https://abedavis.com/" target="_blank">Abe Davis</a>
+                  </span>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent diffusion-based methods have achieved impressive results on animating images of human subjects. However, most of that success has built on human-specific body pose representations and extensive training  with labeled real videos. In this work, we extend the ability of such models to animate images of characters with more diverse skeletal topologies.
+Given a small number (3-5) of example frames showing the character in different poses with corresponding skeletal information, our model quickly infers a rig for that character that can generate images corresponding to new skeleton poses.
+We propose a procedural data generation pipeline that efficiently samples training data with diverse topologies on the fly. We use it, along with a novel skeleton representation, to train our model on articulated shapes spanning a large space of textures and topologies. Then during fine-tuning, our model rapidly adapts to unseen target characters and generalizes well to rendering new poses, both for realistic and more stylized cartoon appearances. 
+To better evaluate performance on this novel and challenging task, we create the first 2D video dataset that contains both humanoid and non-humanoid subjects with per-frame keypoint annotations. With extensive experiments, we demonstrate the superior quality of our results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Method</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video">
+            <img src="gallery/pipeline.png" alt="train_pipeline"/>
+            <p>
+              (a) Our model takes in a appearance reference image and a skeleton image as inputs. (b) For the first training stage, these are randomly generated through our data pipeline. With more than $3e10$ possible combinations of texture, shape, and topology, our synthetic dataset is more challenging than any real-life datasets, which forces our model to learn the correct binding and deformations. Our skeleton representation for this wide range of topologies is also unique: in the Red and Green channel of this RGB image, we color pixels according to their x and y coordinates. When a user specifies a new target pose, this skeleton is transformed accordingly, which means that the value of pixels in the target skeleton image now refer to source coordinates in the starting rest pose. We use the Blue channel to embed layer ordering of each part of the body, which is crucial for characters that contain parts of different depths. For each appearance we train the model multiple target poses and layer orderings, as shown in the two dashed boxes in (b). When the new pose causes occlusions as in the two left columns, the supervising ground truth appearance is different when the order changes. Thus, our model is forced to understand the influence of layer ordering to appearance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End youtube video -->
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Results Gallery</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="gallery/others/edina_loop.gif"  width =1000 height=150/>
+        <h2 class="subtitle has-text-centered">
+          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result.</h2>
+      </div>
+      <div class="item">
+        <img src="gallery/others/hike_loop.gif"  width =1000 height=150/>
+        <h2 class="subtitle has-text-centered">
+          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result.</h2>
+     </div>
+     <div class="item">
+      <img src="gallery/others/swan_loop.gif"  width =1000 height=150/>
+      <h2 class="subtitle has-text-centered">
+        From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result.</h2>
+   </div>
+   <div class="item">
+    <img src="gallery/others/worm_loop.gif"  width =1000 height=150/>
+    <h2 class="subtitle has-text-centered">
+      From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result. </h2>
+ </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Comparison with Other Methods</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="gallery/octopus3d/ocotpus_loop.gif"  width =800 height=150/>
+        <img src="gallery/octopus3d/aa_loop.gif"  width =200 height=150/>
+         <img src="gallery/octopus3d/magicdance.gif"   width =200 height=150/>
+        <h2 class="subtitle has-text-centered">
+          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result, Animate Anyone Result, MagicDance Result. </h2>
+      </div>
+      <div class="item">
+        <img src="gallery/pinwheel/pinwheel_loop.gif"  width =800 height=150/>
+        <img src="gallery/pinwheel/aa_loop.gif"  width =200 height=150/>
+         <img src="gallery/pinwheel/pinwheel_magicdance.gif"   width =200 height=150/>
+        <h2 class="subtitle has-text-centered">
+          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result, Animate Anyone Result, MagicDance Result.</h2>
+     </div>
+     <div class="item">
+      <img src="gallery/robotArm/robotArm_loop.gif"  width =800 height=150/>
+      <img src="gallery/robotArm/aa_loop.gif"  width =200 height=150/>
+       <img src="gallery/robotArm/magicdance.gif"   width =200 height=150/>
+      <h2 class="subtitle has-text-centered">
+        From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result, Animate Anyone Result, MagicDance Result. </h2>
+   </div>
+  </div>
+</div>
+</div>
+</section>
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
