@@ -56,17 +56,75 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://www.cs.cornell.edu/~zeqigu/" target="_blank">Zeqi Gu</a>,</span>
+                <a href="https://www.cs.cornell.edu/~zeqigu/" target="_blank">Zeqi Gu</a><sup>1,3</sup>,</span>
                 <span class="author-block">
-                  <a href="https://difanliu.github.io/" target="_blank">Difan Liu</a>,</span>
+                  <a href="https://difanliu.github.io/" target="_blank">Difan Liu</a><sup>2</sup>,</span>
                   <span class="author-block">
-                    <a href="https://langlo.is/" target="_blank">Timothy Langlois</a>,</span>
+                    <a href="https://langlo.is/" target="_blank">Timothy Langlois</a><sup>2</sup>,</span>
                     <span class="author-block">
-                      <a href="https://techmatt.github.io/" target="_blank">Matthew Fisher</a>,</span>
+                      <a href="https://techmatt.github.io/" target="_blank">Matthew Fisher</a><sup>2</sup>,</span>
                       <span class="author-block">
-                        <a href="https://abedavis.com/" target="_blank">Abe Davis</a>
+                        <a href="https://abedavis.com/" target="_blank">Abe Davis</a><sup>3</sup>
                   </span>
             </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Cornell Tech,</span>
+              <span class="author-block"><sup>2</sup>Adobe,</span>
+              <span class="author-block"><sup>3</sup>Cornell University</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="paper.pdf"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://traindragondiffusion.github.io/"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (Coming)</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://traindragondiffusion.github.io/"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming)</span>
+                    </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://traindragondiffusion.github.io/"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span>
+                    <span>Data (Coming)</span>
+                    </a>
+              </div>
+
             </div>
           </div>
         </div>
@@ -84,7 +142,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent diffusion-based methods have achieved impressive results on animating images of human subjects. However, most of that success has built on human-specific body pose representations and extensive training  with labeled real videos. In this work, we extend the ability of such models to animate images of characters with more diverse skeletal topologies.
+            Recent diffusion-based methods have achieved impressive results on animating images of human subjects. However, most of that success has built on human-specific body pose representations and extensive training with labeled real videos. In this work, we extend the ability of such models to animate images of characters with more diverse skeletal topologies.
 Given a small number (3-5) of example frames showing the character in different poses with corresponding skeletal information, our model quickly infers a rig for that character that can generate images corresponding to new skeleton poses.
 We propose a procedural data generation pipeline that efficiently samples training data with diverse topologies on the fly. We use it, along with a novel skeleton representation, to train our model on articulated shapes spanning a large space of textures and topologies. Then during fine-tuning, our model rapidly adapts to unseen target characters and generalizes well to rendering new poses, both for realistic and more stylized cartoon appearances. 
 To better evaluate performance on this novel and challenging task, we create the first 2D video dataset that contains both humanoid and non-humanoid subjects with per-frame keypoint annotations. With extensive experiments, we demonstrate the superior quality of our results.
@@ -107,7 +165,7 @@ To better evaluate performance on this novel and challenging task, we create the
           <div class="publication-video">
             <img src="gallery/pipeline.png" alt="train_pipeline"/>
             <p>
-              (a) Our model takes in a appearance reference image and a skeleton image as inputs. (b) For the first training stage, these are randomly generated through our data pipeline. With more than $3e10$ possible combinations of texture, shape, and topology, our synthetic dataset is more challenging than any real-life datasets, which forces our model to learn the correct binding and deformations. Our skeleton representation for this wide range of topologies is also unique: in the Red and Green channel of this RGB image, we color pixels according to their x and y coordinates. When a user specifies a new target pose, this skeleton is transformed accordingly, which means that the value of pixels in the target skeleton image now refer to source coordinates in the starting rest pose. We use the Blue channel to embed layer ordering of each part of the body, which is crucial for characters that contain parts of different depths. For each appearance we train the model multiple target poses and layer orderings, as shown in the two dashed boxes in (b). When the new pose causes occlusions as in the two left columns, the supervising ground truth appearance is different when the order changes. Thus, our model is forced to understand the influence of layer ordering to appearance.
+              (a) Our model takes in an appearance reference image and a skeleton image as inputs. (b) For the first training stage, these are randomly generated through our data pipeline. With almost infinite possible combinations of texture, shape, and topology, our synthetic dataset is more challenging than any real-life datasets, which forces our model to learn the correct binding and deformations. Our skeleton representation for this wide range of topologies is also unique: in the Red and Green channel of this RGB image, we color pixels according to their x and y coordinates. When a user specifies a new target pose, this skeleton is transformed accordingly, which means that the value of pixels in the target skeleton image now refer to source coordinates in the starting rest pose. We use the Blue channel to embed layer ordering of each part of the body, which is crucial for characters that contain parts of different depths. For each appearance we train the model multiple target poses and layer orderings, as shown in the two dashed boxes in (b). When the new pose causes occlusions as in the two left columns, the supervising ground truth appearance is different when the order changes. Thus, our model is forced to understand the influence of layer ordering to appearance.
             </p>
           </div>
         </div>
