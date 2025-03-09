@@ -111,11 +111,11 @@
                     <span class="icon">
                         <i class="fab fa-github"></i>
                     </span>
-                    <span>Code (Coming)</span>
+                    <span>Code and Data (Coming)</span>
                     </a>
                 </span>
                 <!-- Dataset Link. -->
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://traindragondiffusion.github.io/"
                      class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -123,6 +123,7 @@
                     </span>
                     <span>Data (Coming)</span>
                     </a>
+                  </span> -->
               </div>
 
             </div>
@@ -165,7 +166,7 @@ To better evaluate performance on this novel and challenging task, we create the
           <div class="publication-video">
             <img src="gallery/pipeline.png" alt="train_pipeline"/>
             <p>
-              (a) Our model takes in an appearance reference image and a skeleton image as inputs. (b) For the first training stage, these are randomly generated through our data pipeline. With almost infinite possible combinations of texture, shape, and topology, our synthetic dataset is more challenging than any real-life datasets, which forces our model to learn the correct binding and deformations. Our skeleton representation for this wide range of topologies is also unique: in the Red and Green channel of this RGB image, we color pixels according to their x and y coordinates. When a user specifies a new target pose, this skeleton is transformed accordingly, which means that the value of pixels in the target skeleton image now refer to source coordinates in the starting rest pose. We use the Blue channel to embed layer ordering of each part of the body, which is crucial for characters that contain parts of different depths. For each appearance we train the model multiple target poses and layer orderings, as shown in the two dashed boxes in (b). When the new pose causes occlusions as in the two left columns, the supervising ground truth appearance is different when the order changes. Thus, our model is forced to understand the influence of layer ordering to appearance.
+              (a) Our model takes in an appearance reference image and a skeleton image as inputs. (b) For the first training stage, these are randomly generated through our data pipeline. With almost infinite possible combinations of texture, shape, and topology, our synthetic dataset is more challenging than any real-life datasets, which forces our model to learn the correct binding and deformations. Our skeleton representation for this wide range of topologies is also unique: in the Red and Green channel of this RGB image, we color pixels according to their $x$ and $y$ coordinates. When a user specifies a new target pose, this skeleton is transformed accordingly, which means that the value of pixels in the target skeleton image now refer to source coordinates in the starting rest pose. We use the Blue channel to embed layer ordering of each part of the body, which is crucial for characters that contain parts of different depths. For each appearance we train the model multiple target poses and layer orderings, as shown in the two dashed boxes in (b). When the new pose causes occlusions as in the two left columns, the supervising ground truth appearance is different when the order changes. Thus, our model is forced to understand the influence of layer ordering to appearance.
             </p>
           </div>
         </div>
@@ -183,24 +184,24 @@ To better evaluate performance on this novel and challenging task, we create the
       <h2 class="title is-3">Results Gallery</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <img src="gallery/others/edina_loop.gif"  width =1000 height=150/>
+        <img src="gallery/others/edina_loop_caption.gif"  width =1200 height=150/>
         <h2 class="subtitle has-text-centered">
-          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result.</h2>
+           Our method allows pose control over objects with arbitrary topology and appearance. The background could be static as well as moving.</h2>
       </div>
       <div class="item">
-        <img src="gallery/others/hike_loop.gif"  width =1000 height=150/>
+       <img src="gallery/others/swan_loop_caption.gif"  width =1200 height=150/>
+       <h2 class="subtitle has-text-centered">
+        Our method allows pose control over objects with arbitrary topology and appearance. The background could be static as well as moving.</h2>
+    </div>
+      <div class="item">
+        <img src="gallery/others/hike_loop_caption.gif"  width =1200 height=150/>
         <h2 class="subtitle has-text-centered">
-          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result.</h2>
+          Our method allows pose control over objects with arbitrary topology and appearance. The background could be static as well as moving.</h2>
      </div>
-     <div class="item">
-      <img src="gallery/others/swan_loop.gif"  width =1000 height=150/>
-      <h2 class="subtitle has-text-centered">
-        From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result.</h2>
-   </div>
    <div class="item">
-    <img src="gallery/others/worm_loop.gif"  width =1000 height=150/>
+    <img src="gallery/others/worm_loop_caption.gif"  width =1200 height=150/>
     <h2 class="subtitle has-text-centered">
-      From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result. </h2>
+      Our method allows pose control over objects with arbitrary topology and appearance. The background could be static as well as moving.</h2>
  </div>
   </div>
 </div>
@@ -214,25 +215,25 @@ To better evaluate performance on this novel and challenging task, we create the
       <h2 class="title is-3">Comparison with Other Methods</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
-        <img src="gallery/octopus3d/ocotpus_loop.gif"  width =800 height=150/>
-        <img src="gallery/octopus3d/aa_loop.gif"  width =200 height=150/>
-         <img src="gallery/octopus3d/magicdance.gif"   width =200 height=150/>
+        <img src="gallery/octopus3d/ocotpus_loop_caption.gif"  width =800 height=150/>
+        <img src="gallery/octopus3d/aa_loop_caption.gif"  width =200 height=150/>
+         <img src="gallery/octopus3d/magicdance_caption.gif"   width =200 height=150/>
         <h2 class="subtitle has-text-centered">
-          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result, Animate Anyone Result, MagicDance Result. </h2>
+          Comparing to fine-tuned humanoid-targeted state-of-the-arts, our method's outputs are more adhered to the skeleton control and temporally conherent.</h2>
       </div>
       <div class="item">
-        <img src="gallery/pinwheel/pinwheel_loop.gif"  width =800 height=150/>
-        <img src="gallery/pinwheel/aa_loop.gif"  width =200 height=150/>
-         <img src="gallery/pinwheel/pinwheel_magicdance.gif"   width =200 height=150/>
+        <img src="gallery/pinwheel/pinwheel_loop_caption.gif"  width =800 height=150/>
+        <img src="gallery/pinwheel/aa_loop_caption.gif"  width =200 height=150/>
+         <img src="gallery/pinwheel/pinwheel_magicdance_caption.gif"   width =200 height=150/>
         <h2 class="subtitle has-text-centered">
-          From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result, Animate Anyone Result, MagicDance Result.</h2>
+          Comparing to fine-tuned humanoid-targeted state-of-the-arts, our method's outputs are more adhered to the skeleton control and temporally conherent.</h2>
      </div>
      <div class="item">
-      <img src="gallery/robotArm/robotArm_loop.gif"  width =800 height=150/>
-      <img src="gallery/robotArm/aa_loop.gif"  width =200 height=150/>
-       <img src="gallery/robotArm/magicdance.gif"   width =200 height=150/>
+      <img src="gallery/robotArm/robotArm_loop_caption.gif"  width =800 height=150/>
+      <img src="gallery/robotArm/aa_loop_caption.gif"  width =200 height=150/>
+       <img src="gallery/robotArm/magicdance_caption.gif"   width =200 height=150/>
       <h2 class="subtitle has-text-centered">
-        From left to right: Reference Image, Skeleton Image in Our Representation, Ground Truth, Our Result, Animate Anyone Result, MagicDance Result. </h2>
+        Comparing to fine-tuned humanoid-targeted state-of-the-arts, our method's outputs are more adhered to the skeleton control and temporally conherent.</h2>
    </div>
   </div>
 </div>
@@ -248,7 +249,7 @@ To better evaluate performance on this novel and challenging task, we create the
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
